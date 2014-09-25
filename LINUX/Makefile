@@ -100,6 +100,9 @@ build: $(GET_DRIVERS)
 		O_DRIVERS="$(DRIVERS:%.c=%.o)" modules
 	@ls -l `find . -name \*.ko`
 
+install:
+	$(MAKE) -C $(KSRC) M=$(PWD) INSTALL_MOD_PATH=$(INSTALL_MOD_PATH) modules_install 
+
 
 test:
 	@echo "version $(LIN_VER)"
@@ -163,7 +166,7 @@ diffs:
 	done
 
 apps:
-	(cd ../examples; $(MAKE))
+	(cd ../examples; $(MAKE) INSTALL_NETMAP_APPS=$(INSTALL_NETMAP_APPS))
 
 +%:
 	@echo $($*)

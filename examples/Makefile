@@ -26,13 +26,14 @@ all: $(PROGS)
 kern_test: testmod/kern_test.c
 
 pkt-gen: pkt-gen.o
-	$(CC) $(CFLAGS) -o pkt-gen pkt-gen.o $(LDFLAGS)
+	echo "Install folder $(INSTALL_NETMAP_APP)"
+	$(CC) $(CFLAGS) -o $(INSTALL_NETMAP_APP)/pkt-gen pkt-gen.o $(LDFLAGS)
 
 bridge: bridge.o
-	$(CC) $(CFLAGS) -o bridge bridge.o
+	$(CC) $(CFLAGS) -o $(INSTALL_NETMAP_APP)/bridge bridge.o
 
 vale-ctl: vale-ctl.o
-	$(CC) $(CFLAGS) -o vale-ctl vale-ctl.o
+	$(CC) $(CFLAGS) -o $(INSTALL_NETMAP_APP)/vale-ctl vale-ctl.o
 
 clean:
 	-@rm -rf $(CLEANFILES)

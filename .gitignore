@@ -1,0 +1,14 @@
+*.o
+*.d
+cnic_if.h
+e1000/
+e1000e/
+*.orig
+get-drivers
+igb/
+ixgbe/
+log.*
+virtio_net.c
+r8169.c
+forcedeth.c
+
